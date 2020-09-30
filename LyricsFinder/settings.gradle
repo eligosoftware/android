@@ -1,0 +1,2 @@
+rootProject.name='LyricsFinder'
+include ':app'
