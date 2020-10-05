@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:key="isAlarmOn"
+                        android:title="@string/notifon_service_on"
+                        android:summary="@string/notifon_service_on_summary"/>
+    <ListPreference android:key="period"
+                    android:title="@string/notifon_period_title"
+                    android:entries="@array/periods"
+                    android:summary="%s"
+                    android:entryValues="@array/period_vals"/>
+    <ListPreference android:key="lastWord"
+                    android:summary="%s"
+                    android:title="@string/notifon_last_word_title"
+                    />
+</PreferenceScreen>
