@@ -1,0 +1,111 @@
+package com.zarra.lionortiger;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.gridlayout.widget.GridLayout;
+
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    enum Player{
+        ONE,
+        TWO
+    }
+    enum Status{
+        CONTINUE,
+        WIN_1,
+        WIN_2,
+        DRAW
+    }
+
+    int[][] game_matrix=new int[3][3];
+
+    private boolean game_is_end=false;
+    Player currentPlayer=Player.ONE;
+
+    TextView currentPlayerLabel;
+    Button btn_reset;
+    GridLayout image_container;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        currentPlayerLabel=findViewById(R.id.curPlayerLabel);
+        setPlayerLabel();
+        image_container=findViewById(R.id.image_container);
+        btn_reset=findViewById(R.id.btn_reset);
+        btn_reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                game_matrix=new int[3][3];
+                game_is_end=false;
+                currentPlayer=Player.ONE;
+                setPlayerLabel();
+                clear_image_views(image_container);
+            }
+        });
+    }
+
+    private void clear_image_views(ViewGroup parent) {
+        for (int i = 0; i < parent.getChildCount(); i++) {
+            ImageView child = (ImageView) parent.getChildAt(i);
+            child.setImageDrawable(null);
+            }
+        }
+
+    private void mark_matrix(ImageView imageView){
+        if(currentPlayer==Player.ONE){
+        switch (imageView.getId()){
+            case R.id.imageView1:
+                game_matrix[0][0]=1;
+                break;
+            case R.id.imageView2:
+                game_matrix[0][1]=1;
+                break;
+            case R.id.imageView3:
+                game_matrix[0][2]=1;
+                break;
+            case R.id.imageView4:
+                game_matrix[1][0]=1;
+                break;
+            case R.id.imageView5:
+                game_matrix[1][1]=1;
+                break;
+            case R.id.imageView6:
+                game_matrix[1][2]=1;
+                break;
+            case R.id.imageView7:
+                game_matrix[2][0]=1;
+                break;
+            case R.id.imageView8:
+                game_matrix[2][1]=1;
+                break;
+            case R.id.imageView9:
+                game_matrix[2][2]=1;
+                break;
+        }
+        }
+        else
+        {
+            switch (imageView.getId()){
+                case R.id.imageView1:
+                    game_matrix[0][0]=2;
+                    break;
+                case R.id.imageView2:
+                    game_matrix[0][1]=2;
+                    break;
+                case R.id.imageView3:
+                    game_matrix[0][2]=2;
+                    break;
+                case R.id.imageView4:
+                    game_matrix[1][0]=2;
+                    break;
+                case R.id.imageView5:
+                    game_matrix[1][1]=2;
+                    break;
+                case 
