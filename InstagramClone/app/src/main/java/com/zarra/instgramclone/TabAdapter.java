@@ -22,6 +22,8 @@ public class TabAdapter extends FragmentPagerAdapter {
                 return new UsersTab();
             case 2:
                 return new SharePictureTab();
+            case 3:
+                return new MyPosts();
             default:
                 return null;
 
@@ -39,6 +41,8 @@ public class TabAdapter extends FragmentPagerAdapter {
                 return "Users";
             case 2:
                 return "Share Picture";
+            case 3:
+                return "My Posts";
             default:
                 return null;
         }
@@ -46,6 +50,6 @@ public class TabAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 }
